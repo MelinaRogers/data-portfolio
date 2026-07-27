@@ -1,5 +1,94 @@
-<!doctype html><meta charset="utf-8"><title>Dashboards</title>
-<style>body{font:15px system-ui;margin:60px auto;max-width:40em;color:#1a1a1a}
-a{color:#8C1515}</style>
-<h1>Data pipeline dashboards</h1>
-<p>Placeholder — verifying hosting. Dashboards land here shortly.</p>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Data pipeline dashboards — Melina Rogers</title>
+<style>
+:root{
+  color-scheme: light;
+  --plane:#f4f4f1; --panel:#fff; --ink:#0b0b0b; --ink-2:#52514e; --muted:#6f6e69;
+  --line:#dcdbd4; --accent:#8C1515;
+}
+@media (prefers-color-scheme: dark){
+  :root{--plane:#0b0b0a; --panel:#1a1a19; --ink:#fff; --ink-2:#c3c2b7; --muted:#8f8d86;
+        --line:#2e2e2b; --accent:#e8574f}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--plane);color:var(--ink);
+  font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:820px;margin:0 auto;padding:56px 24px 80px}
+h1{font-size:26px;font-weight:660;letter-spacing:-.015em;margin:0 0 6px}
+.sub{color:var(--ink-2);font-size:15px;margin:0 0 26px;max-width:62ch}
+.rule{border:0;border-top:3px solid var(--accent);margin:0 0 26px;width:56px}
+
+.note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+  padding:14px 17px;margin:0 0 30px;font-size:13.5px;color:var(--ink-2);line-height:1.5}
+.note b{color:var(--ink)}
+
+.card{display:block;background:var(--panel);border:1px solid var(--line);
+  padding:20px 22px;margin-bottom:14px;text-decoration:none;color:inherit;
+  transition:border-color .12s}
+.card:hover{border-color:var(--accent)}
+.card h2{font-size:17px;font-weight:640;margin:0 0 5px;color:var(--ink)}
+.card h2 span{color:var(--accent);font-weight:560}
+.card p{margin:0 0 10px;font-size:13.5px;color:var(--ink-2);line-height:1.5}
+.stats{display:flex;gap:20px;flex-wrap:wrap;font-size:12px;color:var(--muted);
+  font-variant-numeric:tabular-nums}
+.stats b{color:var(--ink-2);font-weight:600}
+
+footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Data pipeline dashboards</h1>
+  <hr class="rule">
+  <p class="sub">Two working ETL pipelines over public metadata, each ending in a
+  self-contained dashboard. Built as portfolio pieces. All figures come from live
+  harvests of open data — nothing is synthetic.</p>
+
+  <div class="note">
+    <b>Neither of these is an official system, and neither is affiliated with the
+    organisation whose data it analyses.</b> The first analyses publicly available
+    metadata about Stanford-affiliated research and is modelled on an architecture
+    Stanford University Libraries publishes openly under an Apache-2.0 licence; it is
+    not a Stanford product and carries no Stanford endorsement. The second analyses
+    openly licensed metadata from the Internet Archive's Live Music Archive and is not
+    affiliated with the Internet Archive.
+  </div>
+
+  <a class="card" href="research-intel.html">
+    <h2>Stanford Research Output <span>/ research intelligence</span></h2>
+    <p>Multi-source harvest, entity resolution across research platforms, a denormalized
+    reporting layer, and a data-quality audit that reports what the numbers cannot cover
+    as well as what they can.</p>
+    <div class="stats">
+      <span><b>65,552</b> publications</span>
+      <span><b>2023–2025</b></span>
+      <span>OpenAlex · Crossref · OpenAPC</span>
+    </div>
+  </a>
+
+  <a class="card" href="dead-archive.html">
+    <h2>Live Music Archive <span>/ preservation profile</span></h2>
+    <p>Preservation and provenance analysis of a digital audio archive: venue and song
+    authority control, setlists parsed from free text, and reconciliation of independently
+    typed transcriptions of the same performance.</p>
+    <div class="stats">
+      <span><b>18,270</b> recordings</span>
+      <span><b>2,812</b> performances</span>
+      <span><b>1965–1995</b></span>
+      <span>Internet Archive</span>
+    </div>
+  </a>
+
+  <footer>
+    Each dashboard is a single self-contained HTML file — no server, no external requests,
+    no tracking. Source pipelines are not published.
+  </footer>
+</div>
+</body>
+</html>
